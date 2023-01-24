@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu Juanma</title>
+
+    <style>
+        @media screen and (max-width: 700px) {
+            body {
+                overflow: hidden;
+            }
+
+            .logo-menu {
+                /*color: white !important;*/
+                visibility: visible !important;
+            }
+
+            .logo-nombre {
+                width: 100%;
+            }
+
+            .menu-izda, .menu-dcha {
+                visibility: hidden;
+            }
+
+            /*.menu-oculto {
+                visibility: visible !important;
+            }*/
+
+            .menu-enlace {
+                width: 500px !important;
+            }
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .contenedor {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            background-color: lightslategray;
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo-menu {
+            width: 100px;
+            text-align: center;
+            /*color: lightslategray;*/
+            visibility: hidden;
+        }
+
+        .logo-nombre {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 200px;
+        }
+
+        .menu-izda {
+            display: flex;
+        }
+
+        .menu-dcha {
+            display: flex;
+            justify-content: flex-end;
+
+            width: 100vw;
+        }
+
+        .menu-enlace {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: gray;
+            width: 100px;
+            height: 50px;
+        }
+
+        .menu-enlace:hover {
+            background-color: white;
+            color: grey;
+            cursor: pointer;
+        }
+
+        .menu-oculto {
+            /*display: flex;*/
+            flex-direction: column;
+            font-size: 1.3rem;
+            color: white;
+            /*visibility: hidden;*/
+        }
+
+        .abierto{display:flex !important}
+        .cerrado{display:none !important}
+
+    </style>
+
+    <script>
+        function alternar(menu)
+        {
+            var oMenu = document.getElementById(menu);
+            //Si el menu tiene clase abierto
+            //cambia clase a cerrado y cambia el botón
+            if (oMenu.classList.contains('abierto')){
+                oMenu.classList.remove('abierto');
+                oMenu.classList.add('cerrado');
+                //event.target.innerText = 'Abrir'
+            }
+            //Si no está abierto, cambia clase a abierto y cambia el botón
+            else{
+                oMenu.classList.remove('cerrado');
+                oMenu.classList.add('abierto');
+                //event.target.innerText = 'Cerrar'
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="logo">
+            <div class="logo-menu"><a href="#" onclick="alternar('menu')">MENU</a></div>
+            <div class="logo-nombre">MiNombre</div>
+        </div>
+
+        <div class="menu-izda">
+            <div class="menu-enlace">Link1</div>
+            <div class="menu-enlace">Link2</div>
+        </div>
+
+        <div class="menu-dcha">
+            <div class="menu-enlace">Link3</div>
+        </div>
+
+    </div>
+
+    <div class="menu-oculto cerrado" id="menu">
+        <div class="menu-enlace">Link1</div>
+        <div class="menu-enlace">Link2</div>
+        <div class="menu-enlace">Link3</div>
+    </div>
+
+</body>
+</html>
